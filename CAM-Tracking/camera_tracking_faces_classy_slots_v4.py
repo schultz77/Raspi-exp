@@ -191,8 +191,8 @@ myTrack = Tracking(tiltAngle=-30, disp={'width': dispW, 'height':dispH}, filteri
 faceCascade = cv2.CascadeClassifier(WD + '/haar/haarcascade_frontalface_default.xml')
 # eyesCascade = cv2.CascadeClassifier('/home/gecko/Dokumente/camera_1_0/haar/haarcascade_eye.xml')
 
-tStart=time.time()
 while True:
+    tStart=time.time()
     frame= myCam.getFrame()
     if len(frame):
         frame=cv2.flip(frame,-1) # flipping frame by 180 degrees
