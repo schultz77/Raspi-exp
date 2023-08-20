@@ -25,7 +25,7 @@ while cpt < maxFrames:
         # frame = cv2.flip(frame, -1)  # Flip vertically
         frame = cv2.resize(frame, (640, 480))
         cv2.imshow("test window", frame)  # show image in window
-        cv2.imwrite(WD + "/Face_images/cle/cle_%d.jpg" % cpt, frame)
+        cv2.imwrite(WD + "/Face_images/LELE/Leandro_%d.jpg" % cpt, frame)
         time.sleep(0.5)
         cpt += 1
         if cv2.waitKey(1) == ord('q'):
@@ -33,4 +33,6 @@ while cpt < maxFrames:
             myCap.join()
             break
 
+myCap.stop()  # When everything done, release the capture
+myCap.join()
 cv2.destroyAllWindows()
