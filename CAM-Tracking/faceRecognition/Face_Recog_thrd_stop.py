@@ -42,8 +42,9 @@ while True:
     if len(img):
         # img = cv2.flip(img, -1)  # Flip vertically
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # convert Video frame to Greyscale
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5,
-                                              minSize=(int(myCap.minW), int(myCap.minH)))  # Recognizing faces
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, 
+                                              minSize=(int(myCap.minW), int(myCap.minH)),
+                                              flags=cv2.CASCADE_SCALE_IMAGE)  # Recognizing faces
         for (x, y, w, h) in faces:
             roi_gray = gray[y:y + h, x:x + w]  # Convert Face to greyscale
 
