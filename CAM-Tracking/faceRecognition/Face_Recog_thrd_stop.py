@@ -51,7 +51,9 @@ while True:
 
             if conf >= 60:
                 name = labels[id_]  # Get the name from the List using ID number
-                name_conf = name + '_{:.2f}%'.format(conf)
+                confidence = int(100*(1-conf/300))
+                # name_conf = name + '_{:.2f}%'.format(conf)
+                name_conf = name + str(confidence)
                 cv2.putText(img, name_conf, (x, y - 5), font, textHeight, textColor, textWeight - 1)
 
             cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
