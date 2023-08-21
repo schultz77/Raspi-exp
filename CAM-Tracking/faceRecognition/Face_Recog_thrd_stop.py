@@ -48,12 +48,12 @@ while True:
         for (x, y, w, h) in faces:
             roi_gray = gray[y:y + h, x:x + w]  # Convert Face to greyscale
 
-            id_, conf = recognizer.predict(roi_gray)  # recognize the Face
+            id_, error = recognizer.predict(roi_gray)  # recognize the Face
 
-            if conf >= 60:
+            if error <= 60:
                 name = labels[id_]  # Get the name from the List using ID number
-                confidence = int(100*(1-conf/300))
-                # name_conf = name + '_{:.2f}%'.format(conf)
+                confidence = int(100*(1-error/300))
+                # name_conf = name + '_{:.2f}%'.format(error)
                 name_conf = name + str(confidence)
                 cv2.putText(img, name_conf, (x, y - 5), font, textHeight, textColor, textWeight - 1)
 
